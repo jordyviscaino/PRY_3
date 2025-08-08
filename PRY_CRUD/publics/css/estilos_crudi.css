@@ -1,0 +1,56 @@
+  
+        body {
+             background-image: linear-gradient(to right, #d062e6, #feb47b);
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+        }
+
+        .respuesta {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #014674; 
+            padding: 10px;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            text-align: center;
+        }
+    
+.transparente2 {
+  background: rgba(226, 32, 32, 0);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  color: white;
+    width: 100%;
+} 
+
+
+.container2 {
+  margin-top: 5rem;
+  padding: 2rem;
+  background-image: linear-gradient(to right, #e0eff186, #ffffff6c);
+   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  color: white;
+
+}
+
+.container3, .container4 {
+  /* Puedes aplicar los mismos estilos que a container2 o personalizarlos */
+  composes: container2;
+}
+/* card con efecto de transparencia */
+.cardtp{
+  background: rgba(226, 32, 32, 0);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
