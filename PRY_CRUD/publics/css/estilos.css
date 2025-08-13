@@ -1,0 +1,279 @@
+/* =================================================================
+   1. DEFINICIÓN DE VARIABLES DE TEMA
+   ================================================================= */
+:root {
+  /* Tema Claro (por defecto) */
+  --color-fondo: linear-gradient(to right, #d062e6, #feb47b);
+  --color-texto-general: #333333;
+  --color-header-fondo: #343a40;
+  --color-header-texto: rgba(255, 255, 255, 0.55);
+  --color-tarjeta-fondo: #ffffff;
+  --color-tarjeta-texto: #212529;
+  --color-tarjeta-borde: rgba(0, 0, 0, 0.175);
+  --color-tarjeta-sombra: rgba(0, 0, 0, 0.1);
+  --color-footer-fondo: #343a40;
+  --color-footer-texto: #f8f9fa;
+  --color-footer-texto-muted: #6c757d;
+  --color-primario: #0d6efd; /* Azul primario de Bootstrap */
+  --color-primario-texto: #ffffff;
+}
+
+body.modo-oscuro {
+  /* Tema Oscuro */
+  --color-fondo: linear-gradient(135deg, #1f1c2c, #928dab);
+  --color-texto-general: #f0f0f0;
+  --color-header-fondo: #1f1c2c;
+  --color-header-texto: rgba(255, 255, 255, 0.75);
+  --color-tarjeta-fondo: rgba(30, 30, 60, 0.7);
+  --color-tarjeta-texto: #f0f0f0;
+  --color-tarjeta-borde: rgba(255, 255, 255, 0.2);
+  --color-tarjeta-sombra: rgba(0, 0, 0, 0.5);
+  --color-footer-fondo: #1f1c2c;
+  --color-footer-texto: #f0f0f0;
+  --color-footer-texto-muted: #928dab;
+  --color-primario: #3f5efb; /* Un azul más vibrante para tema oscuro */
+  --color-primario-texto: #ffffff;
+
+  /* Sobrescribir variables de Bootstrap para coherencia en modo oscuro */
+  --bs-primary: var(--color-primario);
+  --bs-primary-rgb: 63, 94, 251;
+  --bs-secondary: #8a929a;
+  --bs-secondary-rgb: 138, 146, 154;
+  --bs-success: #20c997;
+  --bs-success-rgb: 32, 201, 151;
+  --bs-info: #39c0ed;
+  --bs-info-rgb: 57, 192, 237;
+  --bs-body-color: var(--color-texto-general);
+}
+
+/* =================================================================
+   2. ESTILOS GENERALES Y ELEMENTOS PRINCIPALES
+   ================================================================= */
+html {
+    height: 100%;
+}
+
+body {
+    background-image: var(--color-fondo);
+    color: var(--color-texto-general);
+    font-family: 'Roboto', sans-serif;
+    transition: background-image 0.5s ease, color 0.5s ease;
+    /* --- Layout Sticky Footer con Flexbox --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Hacemos que el contenido principal (main) crezca para ocupar el espacio vertical disponible */
+main {
+    flex-grow: 1;
+}
+
+/* --- Header / Barra de Navegación --- */
+.navbar {
+    background-color: var(--color-header-fondo) !important;
+    transition: background-color 0.5s ease;
+}
+
+.navbar .nav-link, .navbar .navbar-brand {
+    color: var(--color-header-texto) !important;
+}
+
+.navbar .nav-link.active, .navbar .navbar-brand:hover {
+    color: #ffffff !important;
+}
+
+/* --- Tarjetas (Cards) --- */
+.card {
+    background-color: var(--color-tarjeta-fondo);
+    border: 1px solid var(--color-tarjeta-borde);
+    box-shadow: 0 0 15px var(--color-tarjeta-sombra);
+    transition: all 0.5s ease;
+    backdrop-filter: blur(5px);
+}
+
+.card .card-title, .card .card-text, .card .lead {
+    color: var(--color-tarjeta-texto);
+    transition: color 0.5s ease;
+}
+
+/* Encabezado principal de la tarjeta (reemplaza a .bg-primary y .text-white) */
+.card-header-principal {
+    background-color: var(--color-header-fondo);
+    color: var(--color-primario-texto);
+    transition: all 0.5s ease;
+}
+
+/* Pie de página de la tarjeta (reemplaza a .text-muted) */
+.card-footer-principal {
+    color: var(--color-footer-texto-muted);
+    transition: color 0.5s ease;
+}
+.card-footer-principal a {
+    color: var(--color-primario);
+}
+
+/* --- Formularios --- */
+
+
+/* Los <select> son difíciles de estilizar de forma consistente.
+   Los mantenemos con su estilo claro por defecto para asegurar la legibilidad. */
+
+
+
+
+/* --- Footer / Pie de página --- */
+footer {
+    background-color: var(--color-footer-fondo) !important;
+    color: var(--color-footer-texto) !important;
+    transition: all 0.5s ease;
+}
+
+/* --- Selector de Tema --- */
+#tema-seleccion {
+    background-color: var(--color-header-fondo);
+    color: var(--color-header-texto);
+    border-color: var(--color-tarjeta-borde);
+    transition: all 0.5s ease;
+}
+
+/* =================================================== */
+/* ESTILOS PARA EL BOT DE AYUDA */
+/* =================================================== */
+
+/* --- Botón flotante para abrir el chat --- */
+.bot-toggle-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-primario, #0d6efd); /* Usa tu variable de color primario */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.bot-toggle-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Contenedor del Chat --- */
+.chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 350px;
+    max-width: 90%;
+    background-color: var(--color-tarjeta-fondo, #ffffff);
+    color: var(--color-tarjeta-texto, #333);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none; /* Evita interacción cuando está oculto */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Clase para mostrar el chat */
+.chatbot-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
+/* --- Encabezado del Chat --- */
+.chatbot-header {
+    background-color: var(--color-primario, #0d6efd);
+    color: var(--color-primario-texto, white);
+    padding: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h5 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.close-bot-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.close-bot-button:hover {
+    opacity: 1;
+}
+
+/* --- Cuerpo y Formulario del Chat --- */
+.chatbot-body {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.chatbot-body p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--color-tarjeta-borde, #ccc);
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1em;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-primario, #0d6efd);
+    color: var(--color-primario-texto, white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    opacity: 0.9;
+}
